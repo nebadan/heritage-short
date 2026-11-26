@@ -65,17 +65,24 @@ Real blockers hit while making the film on 26 Nov 2026, in the order they happen
 - **What I did:** added a TTS fallback chain (`gemini-3.1-flash-tts-preview`, `gemini-2.5-flash-preview-tts`, …) so a
   quota error on one model moves to the next instead of failing the shot.
 
-## F7: Getting an original score: three routes
+## F7: Getting an original score: four routes
 - **Stage:** music
 - **What happened:**
   1. acemusic.ai (hosted ACE-Step 1.5, linked from the ACE-Step README) generates for free but asks for a paid
      upgrade to download.
-  2. The official Hugging Face Space (ACE-Step/Ace-Step-v1.5, ZeroGPU) did not work for me: <fill in: error / queue / quota>.
-  3. Colab T4 with the official repo and `uv run acestep --share --config_path acestep-v15-turbo`: <fill in result>.
-- **Meanwhile:** the pipeline kept working with a placeholder drone (the `music` stage falls back automatically), so the
-  rest of the film could be built and tested while music was blocked.
+  2. The official Hugging Face Space (ACE-Step/Ace-Step-v1.5, ZeroGPU) did not work for me.
+  3. Colab T4 with the official repo: `uv` installed to `/usr/local/bin`, not `~/.local/bin` (fixed the path); then
+     `acestep` crashed on import because Colab sets `MPLBACKEND=module://matplotlib_inline…`, which matplotlib inside
+     the uv virtualenv rejects (fixed with `MPLBACKEND=Agg`). The UI then ran, but generation **timed out after 600 s**
+     twice: first an 85 s track with batch size 2, then a 30 s track with batch size 1. ACE-Step's own message
+     suggests VRAM or a stalled diffusion loop on the 16 GB T4.
+  4. **What fixed it:** I added `pipeline/score.py`, a small original score composed in code (Karplus-Strong plucked
+     string on a D major pentatonic melody, a soft drum pulse at 84 BPM, a slow pad; deterministic from a seed, ~8 s on
+     a laptop CPU). The music stage now uses it automatically when no ACE-Step candidate is chosen.
+- **Lesson:** a GPU stage on free hardware needs a fallback that produces something usable without the GPU. The end
+  card was changed to say "Music: composed in code" so the credits stay true.
 
 ## F8: Wan 2.2 motion shot not generated
 - **Stage:** shots, s04
-- **What happened:** <fill in: skipped for time / Kaggle T4 result>. The shots stage logged a `fallback` event and used
+- **What happened:** skipped for time: after ACE-Step timed out twice on a Colab T4, a 5B video model on a Kaggle T4 was not realistic before the deadline. The shots stage logged a `fallback` event and used
   a slow Ken Burns move over the keyframe, so `make film` still finished.

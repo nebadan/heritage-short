@@ -2,7 +2,7 @@
 
 **Nebiyu Daniel Fantahun** · B2W0 AI-Content Generation · 26 November 2026
 
-Repository: https://github.com/nebadan/heritage-short · Film 9:16: [link] · Film 16:9: [link] · Walkthrough: [link] · Post: [link]
+Repository: https://github.com/nebadan/heritage-short · Film (9:16 and 16:9), walkthrough and post: submitted in assignment 2 (B2W0 Film, Walkthrough and Post)
 
 ## 1. What I set out to make, and for whom
 
@@ -20,7 +20,7 @@ every person in the frame is distant or seen from behind (ETHICS.md).
 
 The pipeline is one contract, `storyboard.json`, validated against a JSON Schema, and five stages that each read it:
 narration (Gemini TTS), keyframes (FLUX.2 klein 4B on Cloudflare), shots (FFmpeg Ken Burns, with a Wan 2.2 slot),
-music (ACE-Step 1.5 on Colab) and assembly (FFmpeg: ducking, loudness, subtitles, end card, both aspect ratios).
+music (ACE-Step 1.5 planned; it timed out on the free GPU, so a score composed in code is used) and assembly (FFmpeg: ducking, loudness, subtitles, end card, both aspect ratios).
 `make film` rebuilds everything; every artifact is cached by a hash of its inputs, so only what changed regenerates.
 
 ## 2. What I learned from my audience
@@ -79,7 +79,9 @@ a first draft and the native speaker is part of the pipeline. Evidence: FAILURES
   tier behaves under load (COSTS.md).
 - **Schema rules that enforce the brief:** the schema refuses an end card that doesn't say "AI", a `wan` shot without a
   motion prompt, and a real person without a consent record, so those rules can't be broken by accident.
-- [If done: Afaan Oromo version. Ambo is an Oromo-speaking town; I tested whether the models handle Oromo and found …]
+- **A score composed in code** when the music model failed: ACE-Step 1.5 timed out twice on a Colab T4, so I wrote
+  `pipeline/score.py`, a deterministic Karplus-Strong plucked-string melody on a D major pentatonic scale with a drum
+  pulse at the film's tempo. It taught me that every GPU stage needs a CPU fallback on free hardware (FAILURES F7).
 
 ## 7. What I would build next
 

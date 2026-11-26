@@ -27,7 +27,7 @@
     "duration_s": 85,
     "instrumental": true,
     "chosen_file": null,
-    "choice_reason": "",
+    "choice_reason": "ACE-Step 1.5 timed out twice on a Colab T4; using the pipeline's code-composed fallback score (D major pentatonic, 84 BPM, sparse at start and end so it sits under the voice).",
     "gain_db": -8,
     "duck": {
       "threshold": 0.02,
@@ -52,11 +52,12 @@
         "at_s": 70,
         "note": "thins out to lyre alone for the last line and end card"
       }
-    ]
+    ],
+    "procedural_seed": 11
   },
   "end_card": {
     "text": "Made with AI",
-    "subtext": "Narration: Gemini TTS. Pictures: FLUX.2 klein. Music: ACE-Step 1.5. Edited in code with FFmpeg.",
+    "subtext": "Narration: Gemini TTS. Pictures: FLUX.2 klein. Music: composed in code. Edited in code with FFmpeg.",
     "duration_s": 4
   },
   "shots": [

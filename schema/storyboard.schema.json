@@ -248,6 +248,11 @@
               }
             }
           }
+        },
+        "procedural_seed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Seed for the code-composed fallback score"
         }
       }
     },

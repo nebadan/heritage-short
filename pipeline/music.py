@@ -53,8 +53,19 @@ def resolve(sb: dict, total: float, allow_placeholder: bool = True) -> tuple[Pat
         print(f"  [music] chosen_file {chosen} not found", file=sys.stderr)
     if not allow_placeholder:
         sys.exit("No chosen score. Generate candidates (see gpu/ACESTEP.md) and set music.chosen_file.")
-    print("  [music] no chosen score yet: using placeholder drone")
-    return placeholder(total), True
+    # No ACE-Step candidate: compose an original fallback score in code (pipeline/score.py)
+    from .score import compose
+    m = sb["music"]
+    inputs = {"kind": "procedural", "dur": round(total + 2, 1), "bpm": m["bpm"], "seed": m.get("procedural_seed", 11), "v": 1}
+    out, h = cached("music", "procedural", inputs, "wav")
+    if out.exists():
+        log_cache_hit("music", "procedural", h, out)
+    else:
+        t0 = time.time()
+        compose(out, inputs["dur"], inputs["bpm"], inputs["seed"])
+        log_render("music", "procedural", h, out, time.time() - t0, tool="pipeline/score.py")
+        print(f"  [music] no ACE-Step score: composed procedural score in {time.time() - t0:.0f}s")
+    return out, False
 
 
 def register(argv):

@@ -59,11 +59,13 @@ Entries marked TODO still need the result filled in.
 - **Result:** TODO: compare one wide shot (s04 or s09) both ways and ask one viewer which they prefer.
 - **Decision:** TODO
 
-## E9: Music candidates
-- **Hypothesis:** the candidate with the least busy melody in the first 20 s will sit best under the narration.
-- **Change:** 3 ACE-Step seeds, same caption/BPM/key.
-- **Result:** TODO
-- **Decision:** TODO (also set `music.chosen_file` and `music.choice_reason`)
+## E9: Music: ACE-Step on a free T4 vs a score composed in code
+- **Hypothesis:** ACE-Step 1.5 turbo can generate an 85 s instrumental on a free Colab T4.
+- **Change:** 85 s, batch 2 → timed out at 600 s; 30 s, batch 1 → timed out again.
+- **Result:** no ACE-Step output on this hardware tonight. Fallback: `pipeline/score.py` (D major pentatonic, 84 BPM,
+  seed 11), composed in ~8 s on CPU, deterministic.
+- **Decision:** use the code-composed score; keep ACE-Step as the preferred path when a bigger GPU is available
+  (`music.chosen_file` overrides the fallback).
 
 ## E10: Ducking strength
 - **Hypothesis:** threshold 0.02, ratio 6, attack 300 ms, release 1500 ms (the brief's starting point) will keep the
