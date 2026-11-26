@@ -1,0 +1,74 @@
+[
+  {
+    "id": "s01",
+    "start": 0.0,
+    "dur": 7.0,
+    "narr": "outputs/narration_fx/s01_a65c7b6a94cb.wav",
+    "narr_dur": 4.437,
+    "text_en": "All over Ethiopia, when people want sparkling water, they simply ask for Ambo."
+  },
+  {
+    "id": "s02",
+    "start": 7.0,
+    "dur": 8.875,
+    "narr": "outputs/narration_fx/s02_4f46555e2b03.wav",
+    "narr_dur": 7.748,
+    "text_en": "But Ambo is not a bottle. It is a town, a few hours west of Addis Ababa. This is the road there."
+  },
+  {
+    "id": "s03",
+    "start": 15.875,
+    "dur": 8.0,
+    "narr": "outputs/narration_fx/s03_8941fb3585f7.wav",
+    "narr_dur": 5.022,
+    "text_en": "The minibus leaves before sunrise, and the city falls away behind the eucalyptus trees."
+  },
+  {
+    "id": "s04",
+    "start": 23.875,
+    "dur": 8.0,
+    "narr": "outputs/narration_fx/s04_4e99f28f81ed.wav",
+    "narr_dur": 6.719,
+    "text_en": "The land opens up. Farmers are already in their fields, and the hills fold into more hills."
+  },
+  {
+    "id": "s05",
+    "start": 31.875,
+    "dur": 7.0,
+    "narr": "outputs/narration_fx/s05_bd49b16c58a9.wav",
+    "narr_dur": 2.92,
+    "text_en": "Every bend in the road brings the mountains a little closer."
+  },
+  {
+    "id": "s06",
+    "start": 38.875,
+    "dur": 9.958,
+    "narr": "outputs/narration_fx/s06_7b2aa425ecc8.wav",
+    "narr_dur": 8.857,
+    "text_en": "Then the town appears. Quiet streets, students walking to class, the smell of rain on red earth."
+  },
+  {
+    "id": "s07",
+    "start": 48.833,
+    "dur": 9.0,
+    "narr": "outputs/narration_fx/s07_fecdd3399dcb.wav",
+    "narr_dur": 7.743,
+    "text_en": "Under Ambo, the ground is warm. Water rises from deep below, full of bubbles: the same water the whole country drinks."
+  },
+  {
+    "id": "s08",
+    "start": 57.833,
+    "dur": 8.0,
+    "narr": "outputs/narration_fx/s08_5c766704cbbf.wav",
+    "narr_dur": 6.009,
+    "text_en": "I drink it here, at the source. It tastes the same, and completely different."
+  },
+  {
+    "id": "s09",
+    "start": 65.833,
+    "dur": 8.042,
+    "narr": "outputs/narration_fx/s09_70b39b889e9e.wav",
+    "narr_dur": 6.933,
+    "text_en": "So the next time you order an Ambo, remember: it is not just water. It is a place."
+  }
+]

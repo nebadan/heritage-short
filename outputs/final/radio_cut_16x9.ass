@@ -1,0 +1,28 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,DejaVu Sans,34,&H00FFFFFF,&H000000FF,&H00000000,&H96000000,0,0,0,0,100,100,0,0,1,2,1,2,91,91,42,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.40,0:00:04.84,Default,,0,0,0,,All over Ethiopia, when people want\Nsparkling water, they simply ask for Ambo.
+Dialogue: 0,0:00:07.40,0:00:14.25,Default,,0,0,0,,But Ambo is not a bottle. It is a town, a\Nfew hours west of Addis Ababa. This is the
+Dialogue: 0,0:00:14.25,0:00:15.15,Default,,0,0,0,,road there.
+Dialogue: 0,0:00:16.27,0:00:20.95,Default,,0,0,0,,The minibus leaves before sunrise, and the\Ncity falls away behind the eucalyptus
+Dialogue: 0,0:00:20.95,0:00:21.30,Default,,0,0,0,,trees.
+Dialogue: 0,0:00:24.27,0:00:30.55,Default,,0,0,0,,The land opens up. Farmers are already in\Ntheir fields, and the hills fold into more
+Dialogue: 0,0:00:30.55,0:00:30.99,Default,,0,0,0,,hills.
+Dialogue: 0,0:00:32.27,0:00:35.20,Default,,0,0,0,,Every bend in the road brings the\Nmountains a little closer.
+Dialogue: 0,0:00:39.27,0:00:46.45,Default,,0,0,0,,Then the town appears. Quiet streets,\Nstudents walking to class, the smell of
+Dialogue: 0,0:00:46.45,0:00:48.13,Default,,0,0,0,,rain on red earth.
+Dialogue: 0,0:00:49.23,0:00:54.33,Default,,0,0,0,,Under Ambo, the ground is warm. Water\Nrises from deep below, full of bubbles:
+Dialogue: 0,0:00:54.33,0:00:56.98,Default,,0,0,0,,the same water the whole country drinks.
+Dialogue: 0,0:00:58.23,0:01:04.24,Default,,0,0,0,,I drink it here, at the source. It tastes\Nthe same, and completely different.
+Dialogue: 0,0:01:06.23,0:01:12.65,Default,,0,0,0,,So the next time you order an Ambo,\Nremember: it is not just water. It is a
+Dialogue: 0,0:01:12.65,0:01:13.17,Default,,0,0,0,,place.

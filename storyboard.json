@@ -1,0 +1,191 @@
+{
+  "title": "The Road to Ambo",
+  "logline": "Everyone in Ethiopia orders 'Ambo' sparkling water, but few know it is a place. A journey from Addis Ababa to the town and the spring it is named after.",
+  "language": "am",
+  "language_name": "Amharic",
+  "audience": "Young Ethiopians (18-35) in Addis Ababa and in the diaspora who drink 'Ambo' every week but have never been there; they watch on their phones, mostly vertical, often on Telegram and TikTok.",
+  "intent": "At the end they should see Ambo as a real place with people, land and a source, and feel curious enough to visit, or to ask where the everyday things around them come from.",
+  "style_block": "expressive cinematic painterly illustration, bold gouache brushwork, strong foreground and deep background, dramatic golden light with long shadows and light rays through mist, rich saturated highland greens and red earth, high contrast, emotional atmosphere, like a still from an animated feature film",
+  "models": {
+    "text": "gemini-3.8-flash",
+    "tts": "gemini-3.8-flash-tts",
+    "image": "@cf/black-forest-labs/flux-2-klein-4b",
+    "video": "wan2.2-ti2v-5b",
+    "music": "ace-step-1.5-turbo"
+  },
+  "characters": [],
+  "voice": {
+    "voice_name": "Charon",
+    "style": "calm, warm and unhurried, like a young man quietly telling a friend about the road home",
+    "speed": 1.1,
+    "max_pause_s": 0.35
+  },
+  "music": {
+    "caption": "warm hopeful Ethiopian highland instrumental, plucked krar-like lyre, soft bamboo flute like a washint, gentle steady hand drum pulse like a moving road, slowly building, airy, acoustic, lots of space, no vocals",
+    "bpm": 84,
+    "key": "D major",
+    "duration_s": 85,
+    "instrumental": true,
+    "chosen_file": null,
+    "choice_reason": "",
+    "gain_db": -8,
+    "duck": {
+      "threshold": 0.02,
+      "ratio": 6,
+      "attack_ms": 300,
+      "release_ms": 1500
+    },
+    "cues": [
+      {
+        "at_s": 0,
+        "note": "lyre alone, curious, under the bottle hook"
+      },
+      {
+        "at_s": 12,
+        "note": "drum pulse starts as the minibus leaves"
+      },
+      {
+        "at_s": 45,
+        "note": "flute enters at the arrival in town"
+      },
+      {
+        "at_s": 70,
+        "note": "thins out to lyre alone for the last line and end card"
+      }
+    ]
+  },
+  "end_card": {
+    "text": "Made with AI",
+    "subtext": "Narration: Gemini TTS. Pictures: FLUX.2 klein. Music: ACE-Step 1.5. Edited in code with FFmpeg.",
+    "duration_s": 4
+  },
+  "shots": [
+    {
+      "id": "s01",
+      "duration_s": 7,
+      "shot_size": "close_up",
+      "camera": "push_in",
+      "motion": "kenburns",
+      "seed": 201,
+      "beat": "hook",
+      "reason": "Opens on an object every viewer knows, so the place feels familiar before we name it.",
+      "image_prompt": "Extreme close-up of a green glass bottle of sparkling water with no label on a wooden cafe table, sunlight shining through the glass and casting green light on the table, streams of bubbles rising, condensation drops, the busy city street blurred behind, shallow depth of field",
+      "narration": "በመላው ኢትዮጵያ፣ ሰዎች ጋዝ ያለው ውኃ ሲፈልጉ በቀላሉ «አምቦ» ይላሉ።",
+      "narration_en": "All over Ethiopia, when people want sparkling water, they simply ask for Ambo.",
+      "changed_by": "user test 1: two viewers said the images were not expressive enough -> stronger light, depth, foreground and emotion"
+    },
+    {
+      "id": "s02",
+      "duration_s": 8,
+      "shot_size": "wide",
+      "camera": "pan_right",
+      "motion": "kenburns",
+      "seed": 212,
+      "beat": "turn",
+      "reason": "Turns the hook: Ambo is a town, and this is a journey. Sets dawn as the starting time.",
+      "image_prompt": "Rows of parked blue and white minibus taxis at a city station at dawn, a huge orange sun rising behind them through mist, long shadows across the ground, small travellers with bags walking towards the buses, dramatic sky",
+      "narration": "ነገር ግን አምቦ የጠርሙስ ስም ብቻ አይደለም፤ ከአዲስ አበባ በስተምዕራብ ጥቂት ሰዓታት ርቀት ላይ ያለች ከተማ ናት። እንግዲህ መንገዳችን ወደዚያው ነው።",
+      "narration_en": "But Ambo is not a bottle. It is a town, a few hours west of Addis Ababa. This is the road there.",
+      "changed_by": "user test 1: two viewers said the images were not expressive enough -> stronger light, depth, foreground and emotion"
+    },
+    {
+      "id": "s03",
+      "duration_s": 8,
+      "shot_size": "medium",
+      "camera": "pan_left",
+      "motion": "kenburns",
+      "seed": 203,
+      "beat": "leaving",
+      "reason": "The point of view of the traveller, without showing any real face.",
+      "image_prompt": "Looking out through a dusty minibus window from inside, a hand resting on the window edge in the foreground, outside tall eucalyptus trees rushing past with first sunlight flickering through them in bright streaks, motion blur, warm light on the window frame",
+      "narration": "ታክሲው ፀሐይ ሳትወጣ ይነሳል፣ ከተማዋም ከባሕር ዛፎች ጀርባ እየራቀች ትቀራለች።",
+      "narration_en": "The minibus leaves before sunrise, and the city falls away behind the eucalyptus trees.",
+      "changed_by": "user test 1: two viewers said the images were not expressive enough -> stronger light, depth, foreground and emotion"
+    },
+    {
+      "id": "s04",
+      "duration_s": 8,
+      "shot_size": "extreme_wide",
+      "camera": "static",
+      "motion": "wan",
+      "seed": 224,
+      "beat": "the land",
+      "reason": "The one shot worth real motion: life on the land along the road.",
+      "image_prompt": "Vast green highland valley at sunrise, golden light rays breaking through morning mist, a patchwork of freshly ploughed fields and green crops, two oxen standing in a field far away, rolling hills layer after layer into the distance, dramatic clouds",
+      "narration": "መሬቱ ሰፋ ብሎ ይታያል። አርሶ አደሮች ቀደም ብለው ወደ ማሳቸው ሄደዋል፣ ኮረብታዎቹም እየተከታተሉ ይዘረጋሉ።",
+      "narration_en": "The land opens up. Farmers are already in their fields, and the hills fold into more hills.",
+      "motion_prompt": "the two oxen walk slowly forward pulling the plough, mist drifts gently",
+      "changed_by": "user test 1 (more expressive) + Cloudflare filter flagged the first expressive prompt; reworded, removed the close farmer"
+    },
+    {
+      "id": "s05",
+      "duration_s": 7,
+      "shot_size": "wide",
+      "camera": "tilt_up",
+      "motion": "kenburns",
+      "seed": 205,
+      "beat": "the road",
+      "reason": "Builds anticipation; the mountains getting closer is the feeling of nearly arriving.",
+      "image_prompt": "A winding road seen from high above snaking through green hills towards tall blue mountains, a single small minibus on the road, huge sunlit clouds casting moving shadows across the valley, sense of distance and anticipation",
+      "narration": "በየመንገዱ መታጠፊያ ተራራዎቹ እየቀረቡን ይመጣሉ።",
+      "narration_en": "Every bend in the road brings the mountains a little closer.",
+      "changed_by": "user test 1: two viewers said the images were not expressive enough -> stronger light, depth, foreground and emotion"
+    },
+    {
+      "id": "s06",
+      "duration_s": 8,
+      "shot_size": "wide",
+      "camera": "push_in",
+      "motion": "kenburns",
+      "seed": 206,
+      "beat": "arrival",
+      "reason": "Arrival: the town is real and lived in, not a brand.",
+      "image_prompt": "A small highland town street just after rain, puddles reflecting the golden sky, wet red earth, low houses with tin roofs, colourful bajaj three-wheelers, students with books walking away from the viewer, tall eucalyptus trees, warm light and steam rising from the ground",
+      "narration": "ከዚያም ከተማዋ ትታያለች። ጸጥ ያሉ ጎዳናዎች፣ ወደ ትምህርት ቤት የሚሄዱ ተማሪዎች፣ በቀይ አፈር ላይ የዘነበ ዝናብ መልካም ሽታ።",
+      "narration_en": "Then the town appears. Quiet streets, students walking to class, the smell of rain on red earth.",
+      "changed_by": "user test 1: two viewers said the images were not expressive enough -> stronger light, depth, foreground and emotion"
+    },
+    {
+      "id": "s07",
+      "duration_s": 9,
+      "shot_size": "medium_close_up",
+      "camera": "push_in",
+      "motion": "kenburns",
+      "seed": 207,
+      "beat": "the source",
+      "reason": "Reveals the source the whole film has been travelling to.",
+      "image_prompt": "A natural mineral spring in a rocky pool surrounded by lush green plants, water bubbling up strongly with thousands of bubbles, warm steam rising into a cool morning, a beam of sunlight falling on the water making it glow, magical atmosphere",
+      "narration": "ከአምቦ በታች ያለው መሬት ሙቅ ነው። ውኃው ከጥልቅ መሬት ውስጥ በአረፋ ታጅቦ ይፈልቃል፤ መላው ሀገር የሚጠጣው ውኃም ይኸው ነው።",
+      "narration_en": "Under Ambo, the ground is warm. Water rises from deep below, full of bubbles: the same water the whole country drinks.",
+      "changed_by": "user test 1: two viewers said the images were not expressive enough -> stronger light, depth, foreground and emotion"
+    },
+    {
+      "id": "s08",
+      "duration_s": 8,
+      "shot_size": "close_up",
+      "camera": "static",
+      "motion": "kenburns",
+      "seed": 208,
+      "beat": "tasting",
+      "reason": "A quiet personal moment: tasting it at the source changes its meaning.",
+      "image_prompt": "Close-up of two cupped hands lifting clear sparkling spring water towards the viewer, water spilling between the fingers in glowing droplets, backlit by the sun, bubbles in the water, blurred spring and greenery behind, intimate and emotional",
+      "narration": "እኔ ግን እዚህ፣ ምንጩ ጋር ሆኜ እጠጣዋለሁ። ጣዕሙ አንድ ዓይነት ቢሆንም፣ ፍጹም የተለየ ስሜት ይሰጠኛል።",
+      "narration_en": "I drink it here, at the source. It tastes the same, and completely different.",
+      "changed_by": "user test 1: two viewers said the images were not expressive enough -> stronger light, depth, foreground and emotion"
+    },
+    {
+      "id": "s09",
+      "duration_s": 8,
+      "shot_size": "extreme_wide",
+      "camera": "pull_out",
+      "motion": "kenburns",
+      "seed": 209,
+      "beat": "meaning",
+      "reason": "Closes on the whole landscape; the last line changes how the viewer will see the bottle.",
+      "image_prompt": "A panoramic view of the hills around a small highland town at sunset, a road disappearing towards the horizon, sky blazing orange and purple, warm lights coming on in the houses below, a lone traveller silhouetted on a hill in the foreground looking at the town",
+      "narration": "ስለዚህ፣ በሚቀጥለው ጊዜ «አምቦ» ሲጠይቁ ያስታውሱ፦ ውኃ ብቻ አይደለም፤ የአንድ ቦታ ስም ነው።",
+      "narration_en": "So the next time you order an Ambo, remember: it is not just water. It is a place.",
+      "changed_by": "user test 1: two viewers said the images were not expressive enough -> stronger light, depth, foreground and emotion"
+    }
+  ]
+}

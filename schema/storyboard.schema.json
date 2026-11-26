@@ -1,0 +1,394 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/heritage-short/storyboard.schema.json",
+  "title": "Heritage Short storyboard",
+  "description": "The contract between every pipeline stage. Every stage reads this file; nothing else is shared between stages.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "language",
+    "language_name",
+    "audience",
+    "intent",
+    "style_block",
+    "models",
+    "voice",
+    "music",
+    "end_card",
+    "shots"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "logline": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)*$",
+      "description": "BCP-47 code of the narration language, e.g. am, om, ti, en"
+    },
+    "language_name": {
+      "type": "string",
+      "minLength": 2
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 10
+    },
+    "intent": {
+      "type": "string",
+      "minLength": 10
+    },
+    "style_block": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Fixed look description appended to every image prompt"
+    },
+    "models": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "tts",
+        "image"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "tts": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "video": {
+          "type": "string"
+        },
+        "music": {
+          "type": "string"
+        }
+      }
+    },
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 10
+          },
+          "seed": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "real_person": {
+            "type": "boolean",
+            "description": "true if this depicts or voices a real person; then consent_ref is required"
+          },
+          "consent_ref": {
+            "type": "string",
+            "description": "Pointer to the consent record in ETHICS.md"
+          }
+        },
+        "if": {
+          "properties": {
+            "real_person": {
+              "const": true
+            }
+          },
+          "required": [
+            "real_person"
+          ]
+        },
+        "then": {
+          "required": [
+            "consent_ref"
+          ]
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "voice_name",
+        "style"
+      ],
+      "properties": {
+        "voice_name": {
+          "type": "string",
+          "description": "Prebuilt Gemini TTS voice, e.g. Kore, Charon, Aoede"
+        },
+        "style": {
+          "type": "string",
+          "description": "Plain-language delivery instruction"
+        },
+        "speed": {
+          "type": "number",
+          "minimum": 0.7,
+          "maximum": 1.5,
+          "description": "Tempo applied with FFmpeg atempo (pitch kept)"
+        },
+        "max_pause_s": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 2,
+          "description": "Longest pause kept inside a narration line"
+        }
+      }
+    },
+    "music": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "caption",
+        "bpm",
+        "key",
+        "duration_s",
+        "gain_db",
+        "duck"
+      ],
+      "properties": {
+        "caption": {
+          "type": "string",
+          "minLength": 10
+        },
+        "bpm": {
+          "type": "integer",
+          "minimum": 40,
+          "maximum": 200
+        },
+        "key": {
+          "type": "string"
+        },
+        "duration_s": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 240
+        },
+        "instrumental": {
+          "type": "boolean"
+        },
+        "chosen_file": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Path (relative to repo) of the chosen ACE-Step candidate"
+        },
+        "choice_reason": {
+          "type": "string"
+        },
+        "gain_db": {
+          "type": "number",
+          "maximum": 0
+        },
+        "duck": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "threshold",
+            "ratio",
+            "attack_ms",
+            "release_ms"
+          ],
+          "properties": {
+            "threshold": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 1
+            },
+            "ratio": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 20
+            },
+            "attack_ms": {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 2000
+            },
+            "release_ms": {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 9000
+            }
+          }
+        },
+        "cues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "at_s",
+              "note"
+            ],
+            "properties": {
+              "at_s": {
+                "type": "number",
+                "minimum": 0
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "end_card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "duration_s"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "pattern": "\\bAI\\b",
+          "description": "Must say the film was made with AI"
+        },
+        "subtext": {
+          "type": "string"
+        },
+        "duration_s": {
+          "type": "number",
+          "minimum": 2,
+          "maximum": 8
+        }
+      }
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 12,
+      "items": {
+        "$ref": "#/$defs/shot"
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "shot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "duration_s",
+        "reason",
+        "shot_size",
+        "image_prompt",
+        "motion",
+        "camera",
+        "narration_en"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "duration_s": {
+          "type": "number",
+          "minimum": 2,
+          "maximum": 15,
+          "description": "Minimum length; stretched to fit narration"
+        },
+        "beat": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Why this shot exists"
+        },
+        "shot_size": {
+          "enum": [
+            "extreme_wide",
+            "wide",
+            "medium",
+            "medium_close_up",
+            "close_up",
+            "extreme_close_up",
+            "insert"
+          ]
+        },
+        "characters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "image_prompt": {
+          "type": "string",
+          "minLength": 10
+        },
+        "motion": {
+          "enum": [
+            "kenburns",
+            "wan"
+          ]
+        },
+        "camera": {
+          "enum": [
+            "static",
+            "push_in",
+            "pull_out",
+            "pan_left",
+            "pan_right",
+            "tilt_up",
+            "tilt_down"
+          ]
+        },
+        "motion_prompt": {
+          "type": "string"
+        },
+        "narration": {
+          "type": "string",
+          "description": "Narration in the target language (spoken)"
+        },
+        "narration_en": {
+          "type": "string",
+          "description": "English text (subtitles)"
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "changed_by": {
+          "type": "string",
+          "description": "Which user test or experiment changed this shot"
+        }
+      },
+      "if": {
+        "properties": {
+          "motion": {
+            "const": "wan"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "motion_prompt"
+        ]
+      }
+    }
+  }
+}
